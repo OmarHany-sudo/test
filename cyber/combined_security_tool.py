@@ -5,7 +5,6 @@ import os
 import nmap
 import threading
 
-# --- Dark Web Exposure Finder Functions ---
 breach_set = set()
 try:
     with open("breach_dataset.txt", "r", encoding="utf-8") as file:
@@ -48,7 +47,7 @@ def check_email(email_entry, output_text):
 def clear_output(output_text):
     output_text.delete(1.0, tk.END)
 
-# --- Vulnerability Scanner Functions ---
+
 def scan_target(target, port_range, scan_status_label):
     scanner = nmap.PortScanner()
     scan_status_label.config(text="Scanning... Please wait ⏳")
@@ -80,7 +79,7 @@ def start_scan(target_entry, port_entry, scan_status_label):
         messagebox.showwarning("Warning", "Please enter a target")
         return
 
-    # Run scan in a separate thread to prevent freezing
+   
     def scan_thread():
         try:
             scan_data = scan_target(target, port_range, scan_status_label)
@@ -92,23 +91,23 @@ def start_scan(target_entry, port_entry, scan_status_label):
 
     threading.Thread(target=scan_thread, daemon=True).start()
 
-# --- GUI Setup with Tabs ---
+
 root = tk.Tk()
 root.title("Combined Security Tool")
 root.geometry("900x700")
 root.configure(bg="#e6e6e6")
 
-# Title Frame
+
 title_frame = tk.Frame(root, bg="#003087", height=60)
 title_frame.pack(fill="x")
 title_label = tk.Label(title_frame, text="🔒 Combined Security Tool 🔒", bg="#003087", fg="white", font=("Arial", 20, "bold"))
 title_label.pack(pady=15)
 
-# Notebook (Tabs)
+
 notebook = ttk.Notebook(root)
 notebook.pack(pady=10, fill="both", expand=True)
 
-# --- Dark Web Exposure Finder Tab ---
+
 exposure_frame = tk.Frame(notebook, bg="#f5f5f5")
 notebook.add(exposure_frame, text="Dark Web Exposure Finder")
 
@@ -128,7 +127,7 @@ clear_button.pack(side=tk.LEFT, padx=10)
 output_text = scrolledtext.ScrolledText(exposure_frame, wrap=tk.WORD, width=100, height=20, bg="#1c2526", fg="#00FF00", font=("Courier", 12))
 output_text.pack(pady=15, padx=10)
 
-# --- Vulnerability Scanner Tab ---
+
 scanner_frame = tk.Frame(notebook, bg="#f5f5f5")
 notebook.add(scanner_frame, text="Vulnerability Scanner")
 
@@ -151,7 +150,7 @@ scan_status_label.pack(pady=5)
 scan_button = tk.Button(scanner_frame, text="Start Scan", command=lambda: start_scan(target_entry, port_entry, scan_status_label), bg="#003087", fg="white", font=("Arial", 12, "bold"))
 scan_button.pack(pady=15)
 
-# Footer
+
 footer_frame = tk.Frame(root, bg="#003087")
 footer_frame.pack(fill="x", pady=10)
 
