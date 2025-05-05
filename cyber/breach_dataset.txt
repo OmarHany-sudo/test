@@ -1,0 +1,9 @@
+***  Merged dataset containing passwords from Have I Been Pwned
+***  Format: hashed_email,source,date
+
+a94a8fe5ccb19ba61c4c0873d391e987982fbbd3,haveibeenpwned,2023-01-01
+e80b5017098950fc58aad83c8c14978e95c1c8e8,haveibeenpwned,2023-01-01
+cbfdac6008f9cab4083784cbd1874f76618d2a97,haveibeenpwned,2023-01-01
+7c4a8d09ca3762af61e59520943dc26494f8941b,haveibeenpwned,2023-01-01
+5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8,haveibeenpwned,2023-01-01
+a87ff679a2f3e71d9181a67b7542122c0d791f2b,haveibeenpwned,2023-01-01
